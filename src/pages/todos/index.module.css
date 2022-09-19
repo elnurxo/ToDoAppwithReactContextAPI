@@ -1,0 +1,21 @@
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    list-style: none;
+    text-align: left;
+    padding:20px 30px;
+    font-weight: bold;
+    font-size: 17px;
+}
+li input{
+    display: flex;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+}

@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import { Box } from "@mui/material";
+import { TodosProvider } from "./context/todos";
+
+import {
+  Navbar,
+  HomePage,
+  ToDos,
+  AddToDo,
+  CompletedToDos,
+  NotFound,
+} from "./components";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <TodosProvider>
+      <Navbar />
+      <Box sx={{ pt: "58px" }}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/todos" element={<ToDos />} />
+        <Route path="/addtodo" element={<AddToDo />}></Route>
+        <Route path="/completedtodos" element={<CompletedToDos />}></Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      </Box>
+      </TodosProvider>
+    
+    </BrowserRouter>
   );
 }
 
